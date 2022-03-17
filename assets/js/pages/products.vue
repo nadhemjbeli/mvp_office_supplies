@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <aside class="col-xs-12 col-3">
-                <div class="sidebar p-3 mb-5">
+                <div :class="[$style.sidebar]">
                     <h5 class="text-center">
                         Categories
                     </h5>
@@ -51,6 +51,7 @@
 
 <script>
 import LegendComponent from '../components/legend';
+
 export default {
     name: 'Products',
     components: {
@@ -64,10 +65,16 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 @import '../../scss/components/light-component';
 
     .sidebar {
         @include light-component;
+
+        ul {
+          li a:hover {
+            background: $blue-component-link-hover;
+          }
+        }
     }
 </style>
