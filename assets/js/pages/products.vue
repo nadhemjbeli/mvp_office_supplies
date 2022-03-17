@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <LegendComponent title="TODO PUT LEGEND HERE" />
+                    <LegendComponent :title="legend" />
                 </div>
             </div>
         </div>
