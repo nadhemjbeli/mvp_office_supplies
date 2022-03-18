@@ -1,33 +1,37 @@
 <template>
     <div
-        :class="[$style.sidebar]"
-        :style="{ width: collapsed ? '70px' : 'auto' }"
+        :class="{
+            [$style.component]: true,
+            [$style.collapsed]: collapsed,
+            'p-3': true,
+            'mb-5': true
+        }"
     >
-        <h5 class="text-center">
-            Categories
-        </h5>
-        <ul class="nav flex-column mb4">
-            <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="/"
-                >All Products</a>
-            </li>
+        <div v-if="!collapsed">
+            <h5 class="text-center">
+                Categories
+            </h5>
+            <ul class="nav flex-column mb4">
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="/"
+                    >All Products</a>
+                </li>
 
-            <li
-                v-for="(category, index) in categories"
-                :key="index"
-                class="nav-item"
-            >
-                <a
-                    :href="category.link"
-                    class="nav-link"
-                >{{ category.name }}</a>
-            </li>
-        </ul>
-
-        <hr>
-
+                <li
+                    v-for="(category, index) in categories"
+                    :key="index"
+                    class="nav-item"
+                >
+                    <a
+                        :href="category.link"
+                        class="nav-link"
+                    >{{ category.name }}</a>
+                </li>
+            </ul>
+            <hr>
+        </div>
         <div class="d-flex justify-content-end">
             <button
                 class="btn btn-secondary btn-sm"
@@ -41,6 +45,12 @@
 <script>
 export default {
     name: 'Sidebar',
+    props: {
+        testProp: {
+            type: String,
+            default: 'I am the default value',
+        },
+    },
     data() {
         return {
             collapsed: false,
@@ -67,8 +77,12 @@ export default {
 <style lang="scss" module>
 @import '~styles/components/light-component';
 
-.sidebar {
+.component {
   @include light-component;
+
+  &.collapsed {
+    width: 70px;
+  }
 
   ul {
     li a:hover {

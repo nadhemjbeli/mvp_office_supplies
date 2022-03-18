@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="row">
-            <LegendComponent :title="legend" />
+            <legend-component :title="legend" />
         </div>
     </div>
 </template>
