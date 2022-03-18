@@ -38,15 +38,15 @@
 <script>
 export default {
     name: 'Sidebar',
+
     props: {
-        testProp: {
-            type: String,
-            default: 'I am the default value',
+        collapsed: {
+            type: Boolean,
+            required: true,
         },
     },
     data() {
         return {
-            collapsed: false,
             categories: [
                 {
                     name: 'Dot Matrix Printers',
