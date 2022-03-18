@@ -1,12 +1,5 @@
 <template>
-    <div
-        :class="{
-            [$style.component]: true,
-            [$style.collapsed]: collapsed,
-            'p-3': true,
-            'mb-5': true
-        }"
-    >
+    <div :class="componentClass">
         <div v-if="!collapsed">
             <h5 class="text-center">
                 Categories
@@ -65,6 +58,20 @@ export default {
                 },
             ],
         };
+    },
+    computed: {
+    /**
+     * Computes the component classes depending on collapsed state
+     *
+     * @return string[]
+     */
+        componentClass() {
+            const classes = [this.$style.component, 'p-3', 'mb-5'];
+            if (this.collapsed) {
+                classes.push(this.$style.collapsed);
+            }
+            return classes;
+        },
     },
     methods: {
         toggleCollapsed() {
