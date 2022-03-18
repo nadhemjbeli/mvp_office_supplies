@@ -8,13 +8,7 @@
             </div>
         </div>
         <div class="row">
-            <div
-                v-for="product in products"
-                :key="product['@id']"
-                class="col-xs-12 col-6 mb-2 pb-2"
-            >
-                {{ product.name }}
-            </div>
+            <product-list :products="products" />
         </div>
         <div class="row">
             <legend-component :title="legend" />
@@ -25,11 +19,13 @@
 <script>
 import legendComponent from '@/components/legend';
 import axios from 'axios';
+import ProductList from '@/components/product-list';
 
 export default {
     name: 'Catalog',
     components: {
         legendComponent,
+        ProductList,
     },
     data() {
         return {
@@ -40,7 +36,6 @@ export default {
     async mounted() {
         const response = await axios.get('/api/products');
         this.products = response.data['hydra:member'];
-        console.log(response);
     },
 };
 </script>
