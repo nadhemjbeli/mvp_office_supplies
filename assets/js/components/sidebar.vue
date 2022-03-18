@@ -52,16 +52,15 @@ export default {
             type: Boolean,
             required: true,
         },
+        currentCategoryId: {
+            type: String,
+            default: null,
+        },
     },
     data() {
         return {
             categories: [],
         };
-    },
-    computed: {
-        currentCategoryId() {
-            return window.currentCategoryId;
-        },
     },
 
     async created() {
