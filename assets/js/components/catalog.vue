@@ -8,7 +8,10 @@
             </div>
         </div>
         <div class="row">
-            <product-list :products="products" />
+            <product-list
+                :products="products"
+                :loading="loading"
+            />
         </div>
         <div class="row">
             <legend-component :title="legend" />
@@ -44,11 +47,19 @@ export default {
         if (this.currentCategoryId) {
             params.category = this.currentCategoryId;
         }
+        this.loading = true;
 
-        const response = await axios.get('/api/products',{
-            params,
-        });
+        let response;
+        try {
+            response = await axios.get('/api/products', {
+                params,
+            });
 
+            this.loading = false;
+        } catch (e) {
+            this.loading = false;
+            return;
+        }
         this.products = response.data['hydra:member'];
     },
 };
