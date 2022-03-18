@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import legendComponent from './legend'
+import legendComponent from '@/components/legend';
 
 export default {
     name: 'Catalog',
