@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { fetchProducts } from '@/services/products-service';
 import legendComponent from '@/components/legend';
 import axios from 'axios';
 import ProductList from '@/components/product-list';
@@ -43,17 +44,11 @@ export default {
         };
     },
     async created() {
-        const params = {};
-        if (this.currentCategoryId) {
-            params.category = this.currentCategoryId;
-        }
         this.loading = true;
 
         let response;
         try {
-            response = await axios.get('/api/products', {
-                params,
-            });
+            response = await fetchProducts(this.currentCategoryId);
 
             this.loading = false;
         } catch (e) {
