@@ -7,6 +7,9 @@
                     :categories="categories"
                 />
             </div>
+            <div class="col-9">
+                <search-bar />
+            </div>
         </div>
         <div class="row">
             <product-list
@@ -25,10 +28,12 @@ import { fetchProducts } from '@/services/products-service';
 import legendComponent from '@/components/legend';
 import ProductList from '@/components/product-list';
 import TitleComponent from '@/components/title';
+import SearchBar from '@/components/search-bar';
 
 export default {
     name: 'Catalog',
     components: {
+        SearchBar,
         legendComponent,
         ProductList,
         TitleComponent,
