@@ -8,12 +8,12 @@
                 />
             </div>
             <div class="col-9">
-                <search-bar />
+                <search-bar @search-products="onSearchProducts" />
             </div>
         </div>
         <div class="row">
             <product-list
-                :products="products"
+                :products="filteredProducts"
                 :loading="loading"
             />
         </div>
@@ -56,6 +56,16 @@ export default {
             legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
         };
     },
+    computed: {
+        filteredProducts() {
+            if (!this.searchTerm) {
+                return this.products;
+            }
+            return this.products.filter((product) => (
+                product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+            ));
+        },
+    },
     async created() {
         this.loading = true;
 
@@ -69,6 +79,11 @@ export default {
             return;
         }
         this.products = response.data['hydra:member'];
+    },
+    methods: {
+        onSearchProducts(event) {
+            this.searchTerm = event.term;
+        },
     },
 };
 </script>
