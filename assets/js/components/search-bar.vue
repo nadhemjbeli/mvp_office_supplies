@@ -5,6 +5,7 @@
             class="form-control"
             placeholder="Search products..."
             type="search"
+            @input="onInput"
         >
     </div>
 </template>
@@ -15,6 +16,11 @@ export default {
         return {
             searchTerm: '',
         };
+    },
+    methods: {
+        onInput() {
+            this.$emit('search-products', { term: this.searchTerm });
+        },
     },
 };
 </script>

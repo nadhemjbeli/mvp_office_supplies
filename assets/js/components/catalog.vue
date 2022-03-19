@@ -52,6 +52,7 @@ export default {
         return {
             products: [],
             loading: false,
+            searchTerm: '',
             legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
         };
     },
