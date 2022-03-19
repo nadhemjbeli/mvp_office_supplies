@@ -2,10 +2,7 @@
     <div>
         <div class="row">
             <div class="col-12">
-                <title-component
-                    :current-category-id="currentCategoryId"
-                    :categories="categories"
-                />
+                <title-component :text="product.name" />
             </div>
             <div class="col-9">
                 <search-bar @search-products="onSearchProducts" />
@@ -55,6 +52,17 @@ export default {
             searchTerm: null,
             legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
         };
+    },
+    computed: {
+        categoryName() {
+            if (this.currentCategoryId === null) {
+                return 'All Products';
+            }
+
+            const category = this.categories.find((cat) => (cat['@id'] === this.currentCategoryId));
+
+            return category ? category.name : '';
+        },
     },
     watch: {
         currentCategoryId() {
