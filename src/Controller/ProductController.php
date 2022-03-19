@@ -28,6 +28,7 @@ class ProductController extends AbstractController
      */
     public function showCategory(Category $category, IriConverterInterface $iriConverter, CategoryRepository $categoryRepository): Response
     {
+
         return $this->render('product/index.html.twig',[
             'currentCategoryId' => $iriConverter->getIriFromItem($category),
             'categories'=> $categoryRepository->findAll(),
