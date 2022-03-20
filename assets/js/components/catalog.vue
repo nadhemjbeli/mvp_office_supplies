@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <div class="col-12">
-                <title-component :text="product.name" />
+                <title-component :text="categoryName" />
             </div>
             <div class="col-9">
                 <search-bar @search-products="onSearchProducts" />
