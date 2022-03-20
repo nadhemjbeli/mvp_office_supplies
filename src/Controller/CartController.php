@@ -7,10 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ShoppingCartController extends AbstractController
+class CartController extends AbstractController
 {
     /**
-     * @Route("/shopping-cart", name="app_cart")
+     * @Route("/cart", name="app_cart")
      */
     public function shoppingCart(): Response
     {

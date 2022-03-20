@@ -26,7 +26,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('products', './assets/js/products.js')
-    // .addEntry('shopping-cart', './assets/shopping-cart.js')
+    .addEntry('shopping-cart', './assets/js/shopping-cart.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
@@ -75,8 +75,7 @@ Encore
 
     // enables Sass/SCSS support
     .enableSassLoader()
-    .enableVueLoader()
-
+    .enableVueLoader();
 // uncomment if you use TypeScript
 //.enableTypeScriptLoader()
 
@@ -90,7 +89,7 @@ Encore
 // uncomment if you use API Platform Admin (composer req api-admin)
 //.enableReactPreset()
 //.addEntry('admin', './assets/js/admin.js')
-;
+
 
 if (!Encore.isProduction()) {
     Encore.disableCssExtraction();
