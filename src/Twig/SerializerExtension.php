@@ -19,6 +19,7 @@ class SerializerExtension extends AbstractExtension
     {
         return [
             new TwigFilter('jsonld', [$this, 'serializeToJsonLd'], ['is_safe' => ['html']]),
+            new TwigFilter('iri', [$this, 'convertToIri'], ['is_safe' => ['html']]),
         ];
     }
 
