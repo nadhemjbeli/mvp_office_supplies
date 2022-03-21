@@ -24,7 +24,7 @@ import Catalog from '@/components/catalog';
 import Sidebar from '@/components/sidebar';
 import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
 import { fetchCategories } from '@/services/categories-service';
-import ProductShow from '@/components/product-show';
+import ProductShow from '@/components/product-show/index';
 
 export default {
     name: 'Products',
@@ -70,7 +70,6 @@ export default {
     methods: {
         toggleSidebarCollapsed() {
             this.sidebarCollapsed = !this.sidebarCollapsed;
-            console.log(getCurrentCategoryId());
         },
     },
 };
